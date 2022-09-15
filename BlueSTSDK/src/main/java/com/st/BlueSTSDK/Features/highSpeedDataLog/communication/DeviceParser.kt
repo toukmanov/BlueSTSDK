@@ -119,7 +119,7 @@ private object SensorTypeSerializer : JsonSerializer<SensorType>,JsonDeserialize
 
     override fun deserialize(json: JsonElement?, typeOfT: Type?, context: JsonDeserializationContext?): SensorType {
         val str = json?.asString ?: return SensorType.Unknown
-        return when (str.toUpperCase(Locale.getDefault())){
+        return when (str.uppercase(Locale.getDefault())){
             "ACC" -> SensorType.Accelerometer
             "MAG" -> SensorType.Magnetometer
             "GYRO" -> SensorType.Gyroscope
